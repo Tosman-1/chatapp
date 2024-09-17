@@ -147,7 +147,15 @@
       });
   });
 
-  document.getElementById("sendChat").addEventListener("click", () => {
+  chat.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      sendMssg();
+    }
+  });
+
+  document.getElementById("sendChat").addEventListener("click", sendMssg);
+
+  function sendMssg() {
     let date = new Date();
     let chats = {
       message: chat.value,
@@ -173,7 +181,7 @@
     loadMessages();
     //OR
     // set(ref(database, "chatHistory"), chats);
-  });
+  }
 
   function loadMessages() {
     if (chatId) {
@@ -193,7 +201,7 @@
             } else {
               messageDiv.classList.add("mssg-received");
             }
-            messageDiv.innerHTML = `<p class="usn">${message.user}</p>
+            messageDiv.innerHTML = `
                                 <h3> ${message.message}</h3>
                                 <p class="tmi"> ${message.time}</p>`;
             displayChats.appendChild(messageDiv);
