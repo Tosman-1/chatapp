@@ -1,3 +1,5 @@
+import { config } from "./chatkey.js";
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import {
@@ -17,13 +19,12 @@ const provider = new GoogleAuthProvider();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBOSTSW1EjL3UUgyIJTFX1QsKsnLwz-8TA",
-  authDomain: "newproject-2f9f1.firebaseapp.com",
-  databaseURL: "https://newproject-2f9f1-default-rtdb.firebaseio.com",
-  projectId: "newproject-2f9f1",
-  storageBucket: "newproject-2f9f1.appspot.com",
-  messagingSenderId: "198300522152",
-  appId: "1:198300522152:web:34da01c1f57def3f9c949d",
+  apiKey: config.apiKey,
+  authDomain: config.authDomain,
+  projectId: config.projectId,
+  storageBucket: config.storageBucket,
+  messagingSenderId: config.messagingSenderId,
+  appId: config.appId,
 };
 
 // Initialize Firebase
